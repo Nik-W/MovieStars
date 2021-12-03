@@ -1,0 +1,46 @@
+﻿@{ 
+    ViewBag.Title = "Кинозвёзды";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Кинозвёзды</title>
+</head>
+<body>
+    <div>
+        <p><h3>Кинозвёзды</h3></p>
+        <div class="buttons">
+            <a class="button" href="/Home/AllFilms">Все фильмы</a>
+            <a class="button" href="/Query/Index">Запросы</a>
+            <a class="button" href="/DbEdit/Index">Редактор базы данных</a>
+        </div>
+        <br><br><br>
+        <table>
+            <tr>
+                <td><p>ID</p></td>
+                <td><p>Полное имя</p></td>
+                <td><p>Возраст</p></td>
+                <td><p>Количество фильмов</p></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (var ms in ViewBag.MovieStars)
+            {
+                <tr>
+                    <td><p>@ms.Id</p></td>
+                    <td><p>@ms.FullName</p></td>
+                    <td><p>@ms.Age</p></td>
+                    <td><p>@ms.FilmsCount</p></td>
+                    <td><p><a href="/Home/Roles/@ms.Id">Роли</a></p></td>
+                    <td><p><a href="/Home/Films/@ms.Id">Фильмы</a></p></td>
+                    <td><p><a href="/Home/Rewards/@ms.Id">Награды</a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

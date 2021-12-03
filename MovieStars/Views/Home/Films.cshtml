@@ -1,0 +1,47 @@
+﻿@using MovieStars.Models
+@using System.Linq;
+@{
+    ViewBag.Title = "Фильмы";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Фильмы</title>
+</head>
+<body>
+    <div>
+        <h3>Список фильмов  - @ViewBag.MovieStar.FullName</h3>
+        @if (!((IEnumerable<Film>)ViewBag.Films).Any())
+        {
+            <h4>Нет фильмов!</h4>
+        }
+        @if (((IEnumerable<Film>)ViewBag.Films).Any())
+        {
+            <table>
+                <tr>
+                    <td><p>ID</p></td>
+                    <td><p>Название</p></td>
+                    <td><p>Жанр</p></td>
+                    <td><p>Дата выхода</p></td>
+                    <td><p>Режиссёр</p></td>
+                    <td></td>
+                </tr>
+                @foreach (var f in ViewBag.Films)
+                {
+                    <tr>
+                        <td><p>@f.Id</p></td>
+                        <td><p>@f.Title</p></td>
+                        <td><p>@f.Genre</p></td>
+                        <td><p>@f.ReleaseDate.ToString("d")</p></td>
+                        <td><p>@f.Director.FullName</p></td>
+                        <td><p><a href="/Home/Rating/@f.Id">Оценки</a></p></td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</body>
+</html>

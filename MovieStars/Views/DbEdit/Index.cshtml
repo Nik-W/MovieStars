@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Редактор базы данных";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Запросы</title>
+</head>
+<body>
+<div>
+    <h2>Кинозвёзды</h2>
+    <h4>Добавление</h4>
+    @using (Html.BeginForm("AddMovieStar", "DbEdit", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td><p>Имя</p></td>
+                <td><p>Возраст</p></td>
+                <td><p>Количество фильмов</p></td>
+                <td><p>@ViewBag.ResultAddMs</p></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="FullName" /></td>
+                <td><input type="text" name="Age" /></td>
+                <td><input type="text" name="FilmsCount" /></td>
+                <td><input type="submit" value="Записать" class="button"/></td>
+            </tr>
+        </table>
+    }
+    <h4>Удаление</h4>
+    @using (Html.BeginForm("RemoveMovieStar", "DbEdit", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td><p>ID удаляемой записи</p></td>
+                <td><p>@ViewBag.ResultRemoveMs</p></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Id" /></td>
+                <td><input type="submit" value="Удалить" class="button" /></td>
+            </tr>
+        </table>
+    }
+</div>
+<div>
+    <h2>Фильмы</h2>
+    <h4>Добавление</h4>
+    @using (Html.BeginForm("AddFilm", "DbEdit", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td><p>Название</p></td>
+                <td><p>Жанр</p></td>
+                <td><p>Дата выхода</p></td>
+                <td><p>ID Режиссёра</p></td>
+                <td><p>@ViewBag.ResultAddF</p></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Title" /></td>
+                <td><input type="text" name="Genre" /></td>
+                <td><input type="text" name="ReleaseDate" /></td>
+                <td><input type="text" name="IdDirector" /></td>
+                <td><input type="submit" value="Записать" class="button" /> </td>
+            </tr>
+        </table>
+    }
+    <h4>Удаление</h4>
+    @using (Html.BeginForm("RemoveFilm", "DbEdit", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td><p>ID удаляемой записи</p></td>
+                <td><p>@ViewBag.ResultRemoveF</p></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="Id" /></td>
+                <td><input type="submit" value="Удалить" class="button" /></td>
+            </tr>
+        </table>
+    }
+</div>
+</body>
+</html>

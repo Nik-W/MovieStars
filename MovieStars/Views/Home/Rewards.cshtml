@@ -1,0 +1,40 @@
+﻿@using MovieStars.Models
+@{ 
+    ViewBag.Title = "Награды";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Награды</title>
+</head>
+<body>
+<div>
+    <h3>Список наград  - @ViewBag.MovieStar.FullName</h3>
+    @if (!((IEnumerable<Reward>)ViewBag.Rewards).Any())
+    {
+        <h4>Нет наград!</h4>
+    }
+    @if (((IEnumerable<Reward>)ViewBag.Rewards).Any())
+    { 
+        <table>
+            <tr>
+                <td><p>ID</p></td>
+                <td><p>Название</p></td>
+                <td><p>Год вручения</p></td>
+            </tr>
+            @foreach (var r in ViewBag.Rewards)
+            {
+                <tr>
+                    <td><p>@r.Id</p></td>
+                    <td><p>@r.Title</p></td>
+                    <td><p>@r.DateOfPresentation.ToString("yyyy")</p></td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@using MovieStars.Models
+@{
+    ViewBag.Title = "Оценки";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Оценки</title>
+</head>
+<body>
+    <div>
+        <h3>Список оценок  - @ViewBag.Film.Title</h3>
+        @if (!((IEnumerable<FilmRating>)ViewBag.Rating).Any())
+        {
+            <h4>Нет оценок!</h4>
+        }
+        @if (((IEnumerable<FilmRating>)ViewBag.Rating).Any())
+        {
+            <table>
+                <tr>
+                    <td><p>ID</p></td>
+                    <td><p>Оценка</p></td>
+                    <td><p>Критик</p></td>
+                    <td><p>Рейтинг критика</p></td>
+                </tr>
+                @foreach (var r in ViewBag.Rating)
+                {
+                    <tr>
+                        <td><p>@r.Id</p></td>
+                        <td><p>@r.Rating</p></td>
+                        <td><p>@r.Critic.FullName</p></td>
+                        <td><p>@r.Critic.Rating</p></td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</body>
+</html>

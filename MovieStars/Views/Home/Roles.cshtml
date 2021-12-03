@@ -1,0 +1,40 @@
+﻿@using MovieStars.Models
+@{ 
+    ViewBag.Title = "Роли";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Роли</title>
+</head>
+<body>
+<div>
+    <h3>Список ролей  - @ViewBag.MovieStar.FullName</h3> 
+    @if (!((IEnumerable<Filmed>)ViewBag.Roles).Any())
+    {
+        <h4>Нет ролей!</h4>
+    }
+    @if (((IEnumerable<Filmed>)ViewBag.Roles).Any())
+    {
+        <table>
+            <tr>
+                <td><p>ID</p></td>
+                <td><p>Роль</p></td>
+                <td><p>Гонорар</p></td>
+            </tr>
+            @foreach (var r in ViewBag.Roles)
+            {
+                <tr>
+                    <td><p>@r.Id</p></td>
+                    <td><p>@r.Role</p></td>
+                    <td><p>@r.Honorarium</p></td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+</body>
+</html>

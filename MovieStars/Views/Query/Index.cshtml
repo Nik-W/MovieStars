@@ -1,0 +1,33 @@
+﻿@{ 
+    ViewBag.Title = "Запросы";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Запросы</title>
+</head>
+<body>
+<div>
+    <h3>Средняя оценка фильма</h3>
+    @using (Html.BeginForm("AvgRatingFilms", "Query", FormMethod.Post))
+    {
+        @Html.DropDownList("Films", (IEnumerable<SelectListItem>)ViewBag.Films, "-Выберите фильм-")
+        <input type="submit" name="submit" value="Запрос" class="button"/>
+    }
+    <h4>Средняя оценка фильма @ViewBag.AvgRatingFilm </h4>
+</div>
+<br>
+<div>
+    <h3>Средний гонорар кинозвезды</h3>
+    @using (Html.BeginForm("AvgHonorariums", "Query", FormMethod.Post))
+    {
+        @Html.DropDownList("MovieStars", (IEnumerable<SelectListItem>)ViewBag.MovieStars, "-Выберите кинозвезду-")
+        <input type="submit" name="submit" value="Запрос" class="button" />
+    }
+    <h4>Средний гонорар @ViewBag.AvgHonorarium</h4>
+</div>
+</body>
+</html>
