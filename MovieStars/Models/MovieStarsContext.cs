@@ -4,7 +4,7 @@ namespace MovieStars.Models
 {
     public class MovieStarsContext : DbContext
     {
-        public MovieStarsContext() : base("MovieStarsDataBase")
+        public MovieStarsContext() : base("Data Source=DESKTOP-U9FED9R;Initial Catalog=MovieStarsDataBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         { }
         
         public DbSet<MovieStar> MovieStars { get; set; }

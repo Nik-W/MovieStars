@@ -9,7 +9,7 @@ namespace MovieStars.Controllers
     {
         MovieStarsContext db = new MovieStarsContext();
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             return View();

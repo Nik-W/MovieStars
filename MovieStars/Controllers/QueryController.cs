@@ -9,7 +9,7 @@ namespace MovieStars.Controllers
     {
         MovieStarsContext db = new MovieStarsContext();
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         public ActionResult Index()
         {
             ViewBag.Films = new SelectList(db.Films, "Id", "Title");

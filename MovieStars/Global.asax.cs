@@ -15,7 +15,7 @@ namespace MovieStars
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new RoleInitializer());
+            //Database.SetInitializer(new RoleInitializer());
             GlobalConfiguration.Configure(WebApiConfig.Register);
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings
                 .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
@@ -26,7 +26,7 @@ namespace MovieStars
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new DbInitializer());
+            //Database.SetInitializer(new DbInitializer());
         }
     }
 
